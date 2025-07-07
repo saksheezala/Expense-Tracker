@@ -10,10 +10,16 @@ const __dirname = dirname(__filename);
 const app = express()
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || "*",
+    origin: [
+        "http://localhost:5173",
+        "http://localhost:3000", 
+        "https://expense-tracker.saksheezala.com", 
+        process.env.CORS_ORIGIN
+    ].filter(Boolean),
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 }))
 
 

@@ -17,14 +17,17 @@ const generateToken = (id) => {
 
 //Register function 
 const registerUser = asyncHandler(async (req , res) =>{
+    console.log("Register request received:", req.body);
     
     if (!req.body || typeof req.body !== "object") {
+        console.log("Invalid request body");
         throw new ApiError(400, "Invalid or missing request body");
     }
     const {fullName , email , password , profileImageUrl} = req.body;
 
     //check for missing fields
     if(!fullName || !email || !password){
+        console.log("Missing fields:", {fullName: !!fullName, email: !!email, password: !!password});
         throw new ApiError(400, "Please fill all the fields");
     }
 
