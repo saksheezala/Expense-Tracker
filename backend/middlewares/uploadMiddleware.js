@@ -1,9 +1,22 @@
 import multer from "multer";
+import fs from "fs";
+import path from "path";
+
+// Ensure uploads directory exists
+const uploadsDir = 'uploads/';
+if (!fs.existsSync(uploadsDir)) {
+    try {
+        fs.mkdirSync(uploadsDir, { recursive: true });
+        console.log("Created uploads directory");
+    } catch (error) {
+        console.error("Failed to create uploads directory:", error);
+    }
+}
 
 //configure multer storage
 const storage = multer.diskStorage({
     destination:(req,file,cb) => {
-        cb(null, 'uploads/')
+        cb(null, uploadsDir)
     },
     filename:(req,file,cb) =>{
         cb(null , `${Date.now()}-${file.originalname}`);
@@ -24,10 +37,11 @@ const fileFilter = (req, file, cb) => {
 //initialize multer
 const upload = multer({
     storage: storage,
-    fileFilter: fileFilter
+    fileFilter: fileFilter,
+    limits: {
+        fileSize: 5 * 1024 * 1024 // 5MB limit
+    }
 });
 
 //export the upload middleware
-export const uploadMiddleware = upload.single('image');
-// This middleware will handle single file uploads with the field name 'image'.
-// You can change 'image' to whatever field name you are using in your form.    
+export const uploadMiddleware = upload.single('image');    
