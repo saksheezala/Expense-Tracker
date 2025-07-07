@@ -1,1 +1,9 @@
+# Handle client-side routing
 /*    /index.html   200
+
+# Specific routes
+/login    /index.html   200
+/signup   /index.html   200
+/dashboard    /index.html   200
+/income   /index.html   200
+/expense  /index.html   200
