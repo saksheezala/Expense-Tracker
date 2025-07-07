@@ -46,4 +46,9 @@ app.use("/api/v1/dashboard", dashboardRouter)
 //serve uploads folder
 app.use("/uploads", express.static(path.join(__dirname,"uploads")));
 
+app.get("/", (req, res) => {
+    res.send("Expense Tracker API is running ✅");
+  });
+  
+
 export { app }
