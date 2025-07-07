@@ -37,15 +37,6 @@ import incomeRouter from "./routes/Income.routes.js"
 import expenseRouter from "./routes/Expense.routes.js"
 import dashboardRouter from "./routes/Dashboard.routes.js"
 
-// Health check endpoint for Render
-app.get("/api/health", (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Server is healthy",
-        timestamp: new Date().toISOString()
-    });
-});
-
 // Use routes
 app.use("/api/v1/auth", userRouter)
 app.use("/api/v1/income", incomeRouter)

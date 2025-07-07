@@ -4,18 +4,12 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon -r dotenv/config --experimental-json-modules index.js",
-    "build": "npm install"
+    "dev": "nodemon -r dotenv/config --experimental-json-modules index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "Backend API for expense tracker application",
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=6.0.0"
-  },
+  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
