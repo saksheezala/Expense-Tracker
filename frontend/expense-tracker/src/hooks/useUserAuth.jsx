@@ -6,7 +6,7 @@ import { API_PATHS } from "../utils/apiPaths";
 
 export const useUserAuth = () => {
     const {user ,updateUser , clearUser} = useContext(UserContext);
-    const naviagte = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() =>{
         let isMounted = true;
@@ -22,7 +22,7 @@ export const useUserAuth = () => {
                 console.error("Error fetching user info:", error);
                 if(isMounted){
                     clearUser();
-                    naviagte("/login");
+                    navigate("/login");
                 }
             }
         }

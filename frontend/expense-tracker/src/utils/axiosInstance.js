@@ -38,7 +38,7 @@ axiosInstance.interceptors.response.use(
             if (error.response.status === 401) {
                 // Handle unauthorized access, e.g., redirect to login
                 console.error('Unauthorized access - redirecting to login');
-                window.location.href = '/login'; // Adjust the path as needed
+                window.location.href = '/login'; // Clean URL for BrowserRouter
             } else if(error.response.status === 500) {
                 // Handle server errors
                 console.error('Server error occurred:', error.response.data);
