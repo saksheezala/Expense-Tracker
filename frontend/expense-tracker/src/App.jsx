@@ -25,6 +25,8 @@ const App = () => {
         <Route path="/dashboard" element={<Home />} />
         <Route path="/income" element={<Income />} />
         <Route path="/expense" element={<Expense />} />
+        {/* Catch-all route for 404s - redirect to root */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
 
